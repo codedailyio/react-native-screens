@@ -1,0 +1,6 @@
+{
+  "alias": "reactnativescreens.com",
+  "env": {
+    "SERVER": "@server"
+  }
+}

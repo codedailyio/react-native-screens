@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import Helmet from "react-helmet";
 
-class IndexPage extends Component {
+class ScreenPage extends Component {
   static async getInitialProps({ req }) {
     if (req) {
       Helmet.renderStatic();
     }
-    return { title: "React Native Screens" };
+    return { title: "Screen" };
   }
   render() {
     return (
@@ -20,4 +20,4 @@ class IndexPage extends Component {
   }
 }
 
-export default IndexPage;
+export default ScreenPage;
