@@ -1,29 +1,19 @@
 {
-  "name": "react-native-screens",
-  "description": "A catalog of tutorials on how to build out complex react native screens",
+  "name": "with-emotion",
   "version": "1.0.0",
-  "author": "Jason Brown <browniefed@gmail.com>",
-  "dependencies": {
-    "emotion": "^9.0.1",
-    "emotion-server": "^9.0.1",
-    "gatsby": "^1.9.202",
-    "gatsby-link": "^1.6.37",
-    "gatsby-plugin-emotion": "^1.1.12",
-    "gatsby-plugin-react-helmet": "^2.0.5",
-    "react-helmet": "^5.2.0"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "main": "n/a",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
-  "devDependencies": {
-    "prettier": "^1.10.2"
-  }
+  "dependencies": {
+    "babel-plugin-emotion": "^8.0.4",
+    "emotion": "^8.0.5",
+    "emotion-server": "^8.0.5",
+    "next": "^5.0.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-emotion": "^8.0.5"
+  },
+  "license": "ISC"
 }
