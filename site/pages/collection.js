@@ -3,12 +3,12 @@ import Helmet from "react-helmet";
 import Theme from "../components/themer";
 import Header from "../components/header";
 
-class CollectionsPage extends Component {
+class CollectionPage extends Component {
   static async getInitialProps({ req }) {
     if (req) {
       Helmet.renderStatic();
     }
-    return { title: "Collections" };
+    return { title: "Collection" };
   }
   render() {
     return (
@@ -25,4 +25,4 @@ class CollectionsPage extends Component {
   }
 }
 
-export default CollectionsPage;
+export default CollectionPage;

@@ -18,7 +18,13 @@ app.prepare().then(async () => {
 
   server.route({
     method: "GET",
-    path: "/collection/{id}/{slug}",
+    path: "/collections",
+    handler: pathWrapper(app, "/collections"),
+  });
+
+  server.route({
+    method: "GET",
+    path: "/collections/{id}/{slug}",
     handler: pathWrapper(app, "/collection"),
   });
 

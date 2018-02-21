@@ -4,7 +4,7 @@ import Helmet from "react-helmet";
 
 export default class MyDocument extends Document {
   static async getInitialProps(...args) {
-    const documentProps = await super.getInitialProps(...args)
+    const documentProps = await super.getInitialProps(...args);
     const renderPage = args[0].renderPage;
     const page = renderPage();
     const styles = extractCritical(page.html);
@@ -57,6 +57,10 @@ export default class MyDocument extends Document {
         <Head>
           <title>React Native Screens</title>
           <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
+          <link
+            href="https://cdn.jsdelivr.net/npm/modern-normalize/modern-normalize.min.css"
+            rel="stylesheet"
+          />
           {this.helmetJsx()}
           {this.helmetHeadComponents()}
         </Head>
