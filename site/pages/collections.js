@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Helmet from "react-helmet";
 import Theme from "../components/themer";
 import Header from "../components/header";
+import Newsletter from "../components/newsletter";
 
 class CollectionsPage extends Component {
   static async getInitialProps({ req }) {
@@ -19,6 +20,7 @@ class CollectionsPage extends Component {
             meta={[{ property: "og:title", content: this.props.title }]}
           />
           <Header />
+          <Newsletter />
         </div>
       </Theme>
     );

@@ -1,6 +1,24 @@
 import Document, { Head, Main, NextScript } from "next/document";
 import { extractCritical } from "emotion-server";
+import { injectGlobal } from "react-emotion";
 import Helmet from "react-helmet";
+
+injectGlobal`
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: Helvetica, Arial, sans-serif;
+}
+#__next {
+  min-height: 100vh;
+  height: 100%;
+}
+`;
 
 export default class MyDocument extends Document {
   static async getInitialProps(...args) {
