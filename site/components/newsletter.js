@@ -11,13 +11,17 @@ const RowWrap = styled(Row)({
 const Title = styled.h3({
   fontWeight: 700,
   fontSize: "1.5rem",
+  lineHeight: 1.5,
   margin: 0,
   padding: 0,
+  textAlign: 'center',
 });
 
 const Note = styled.div({
   fontWeight: 300,
   fontSize: "12px",
+  textAlign: 'center',
+  lineHeight: 1.25
 });
 
 const Input = styled.input({

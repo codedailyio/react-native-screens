@@ -5,29 +5,30 @@ import { Row, Col } from "emotion-layout";
 import styled, { css } from "react-emotion";
 
 const Wrap = styled(Row)({
-  backgroundColor: "#FFF",
+  backgroundColor: "#2b32b2",
   minHeight: "80px",
 });
 
 const Title = styled.h1({
   display: "inline-block",
-  color: "#171718",
+  color: "#FFF",
   margin: 0,
   fontWeight: 700,
+  borderBottom: "1px solid transparent",
   fontSize: "1rem",
   ":hover": {
-    color: "#2b32b2",
+    borderBottom: "1px solid #FFF",
   },
 });
 
 const linkClass = css({ color: "inherit", textDecoration: "none" });
 const buttonClass = css({
-  border: "1px solid #2b32b2",
+  border: "1px solid #FFF",
   padding: "8px 16px",
   textDecoration: "none",
-  color: "#171718",
+  color: "#FFF",
   ":hover": {
-    color: "#2b32b2",
+    backgroundColor: "rgba(255,255,255,.05)"
   },
 });
 
