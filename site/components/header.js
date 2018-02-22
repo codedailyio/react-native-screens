@@ -6,6 +6,7 @@ import styled, { css } from "react-emotion";
 
 const Wrap = styled(Row)({
   backgroundColor: "#FFF",
+  minHeight: "80px",
 });
 
 const Title = styled.h1({
@@ -20,17 +21,31 @@ const Title = styled.h1({
 });
 
 const linkClass = css({ color: "inherit", textDecoration: "none" });
+const buttonClass = css({
+  border: "1px solid #2b32b2",
+  padding: "8px 16px",
+  textDecoration: "none",
+  color: "#171718",
+  ":hover": {
+    color: "#2b32b2",
+  },
+});
 
 class Header extends Component {
   render() {
     return (
-      <Wrap justify="center" p={3}>
+      <Wrap justify="center" align="center" p={3}>
         <Col width={1}>
           <Title>
             <Link href="/">
               <a css={linkClass}>React Native Screens</a>
             </Link>
           </Title>
+        </Col>
+        <Col width={1} justify="flex-end" align="center">
+          <Link href="/submit">
+            <a css={buttonClass}>Submit Screen + </a>
+          </Link>
         </Col>
       </Wrap>
     );

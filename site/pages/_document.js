@@ -18,6 +18,12 @@ body {
   min-height: 100vh;
   height: 100%;
 }
+#__next > div {
+  min-height: 100vh;
+  height: 100%;
+  flex-direction: column;
+  display: flex;
+}
 `;
 
 export default class MyDocument extends Document {
@@ -83,7 +89,7 @@ export default class MyDocument extends Document {
           {this.helmetHeadComponents()}
         </Head>
         <body {...this.helmetBodyAttrComponents()}>
-          <Main />
+          <Main style={{ height: "100%" }} />
           <NextScript />
         </body>
       </html>

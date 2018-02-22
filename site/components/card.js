@@ -6,25 +6,25 @@ import styled, { css } from "react-emotion";
 
 const Card = styled(Col)({
   minHeight: "400px",
+  maxHeight: "450px",
 });
 
 const InnerCard = styled(Row)({
-  // border: "1px solid #f5f5f5",
   backgroundColor: "#FFF",
   boxShadow: "0 1px 2px 1px rgba(65, 106, 166, 0.2)",
   transition: "all .5s ease",
-  opacity: 1,
-  ":hover": {
-    opacity: .9,
-  }
+  overflow: "hidden",
 });
 
 const CardTopDisplay = styled(Col)({
-  // backgroundColor: "#E9E9EF",
-  backgroundSize: "contain",
+  backgroundSize: "100%",
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
   position: "relative",
+  transition: "all .3s ease",
+  ":hover": {
+    backgroundSize: "33%",
+  },
 });
 
 const LowerTitle = styled.div({
