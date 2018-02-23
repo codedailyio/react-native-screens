@@ -14,7 +14,10 @@ class IndexPage extends Component {
     if (req) {
       Helmet.renderStatic();
     }
-    const screens = await getScreens(query.page);
+    let screens;
+    try {
+      screens = await getScreens(query.page);
+    } catch (e) {}
 
     return { title: "React Native Screens", screens };
   }

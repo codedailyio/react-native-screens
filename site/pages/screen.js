@@ -11,7 +11,10 @@ class ScreenPage extends Component {
     if (req) {
       Helmet.renderStatic();
     }
-    const screen = getScreen(query.id);
+    let screen;
+    try {
+      screen = await getScreen(query.id);
+    } catch (e) {}
     return { title: "Screen", screen };
   }
   render() {

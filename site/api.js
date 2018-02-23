@@ -21,7 +21,9 @@ export const registerEmail = ({ name, email, page, category }) => {
       page,
       category,
     }),
-  });
+  })
+    .then(checkStatus)
+    .then(getJson);
 };
 
 export const postScreenSuggestion = ({ email, link }) => {
@@ -31,29 +33,39 @@ export const postScreenSuggestion = ({ email, link }) => {
       email,
       link,
     }),
-  });
+  })
+    .then(checkStatus)
+    .then(getJson);
 };
 
 export const getScreens = (page = 1) => {
   return fetch(`${SERVER}/screens?page=${page}`, {
     method: "GET",
-  });
+  })
+    .then(checkStatus)
+    .then(getJson);
 };
 
 export const getScreen = id => {
   return fetch(`${SERVER}/screens/${id}`, {
     method: "GET",
-  });
+  })
+    .then(checkStatus)
+    .then(getJson);
 };
 
 export const getCollections = (page = 1) => {
   return fetch(`${SERVER}/collections?page=${page}`, {
     method: "GET",
-  });
+  })
+    .then(checkStatus)
+    .then(getJson);
 };
 
 export const getCollection = id => {
   return fetch(`${SERVER}/collections/${id}`, {
     method: "GET",
-  });
+  })
+    .then(checkStatus)
+    .then(getJson);
 };

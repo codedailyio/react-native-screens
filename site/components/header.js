@@ -47,7 +47,7 @@ class Header extends Component {
         <Col width={1} justify={["center", "center", "flex-start"]} mb={[2, 2, 0]}>
           <Title>
             <Link href="/">
-              <a css={linkClass}>React Native Screens</a>
+              <a href="/" css={linkClass}>React Native Screens</a>
             </Link>
           </Title>
         </Col>
