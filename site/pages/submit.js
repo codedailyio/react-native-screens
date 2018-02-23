@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Helmet from "react-helmet";
 import Theme from "../components/themer";
 import Header from "../components/header";
 import { Row, Col } from "emotion-layout";
 import styled from "react-emotion";
 
-import { registerEmail } from "../api";
+import { registerEmail, postScreenSuggestion } from "../api";
 
 const RowWrap = styled(Col)({
   color: "#171718",
@@ -70,6 +70,11 @@ const Button = styled.button({
 });
 
 class SubmitScreen extends Component {
+  state = {
+    email: "",
+    link: "",
+    saved: false,
+  };
   static async getInitialProps({ req }) {
     if (req) {
       Helmet.renderStatic();
@@ -78,14 +83,26 @@ class SubmitScreen extends Component {
   }
   handleSubmit = async e => {
     e.preventDefault();
-    await registerEmail({
-      name: "",
-      email: this.state.email,
-      page: "reactnativescreens.com",
-      category: "React Native",
+    await Promise.all([
+      postScreenSuggestion({
+        email: this.state.email,
+        link: this.state.link,
+      }),
+      registerEmail({
+        name: "",
+        email: this.state.email,
+        page: "reactnativescreens.com",
+        category: "React Native",
+      }),
+    ]);
+
+    this.setState({
+      saved: true,
     });
   };
   render() {
+    const { saved, email, link } = this.state;
+
     return (
       <Theme>
         <div>
@@ -97,18 +114,31 @@ class SubmitScreen extends Component {
           <FormWrap onSubmit={this.handleSubmit}>
             <RowWrap width={1} py={4} px={2} flexDirection="column" align="center">
               <Title>Screen Submission</Title>
-              <Note>
-                Want to see how a screen is built? Drop a link here along with your email and you'll
-                get notified when it gets built.
-              </Note>
-              <Input type="email" name="email" placeholder="Your email address" />
-              <Input
-                type="text"
-                name="link"
-                placeholder="Link to Screen Image"
-                css={{ marginTop: 0, marginBottom: "32px" }}
-              />
-              <Button type="submit">Send</Button>
+              {saved && <Note>Thanks for your submission, I'll do my best to build it out!</Note>}
+              {!saved && (
+                <Fragment>
+                  <Note>
+                    Want to see how a screen is built? Drop a link here along with your email and
+                    you'll get notified when it gets built.
+                  </Note>
+                  <Input
+                    type="email"
+                    name="email"
+                    placeholder="Your email address"
+                    value={email}
+                    onChange={e => this.setState({ email: e.target.value })}
+                  />
+                  <Input
+                    type="text"
+                    name="link"
+                    placeholder="Link to Screen Image"
+                    css={{ marginTop: 0, marginBottom: "32px" }}
+                    value={link}
+                    onChange={e => this.setState({ link: e.target.value })}
+                  />
+                  <Button type="submit">Send</Button>
+                </Fragment>
+              )}
             </RowWrap>
           </FormWrap>
         </div>

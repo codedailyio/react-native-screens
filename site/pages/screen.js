@@ -4,12 +4,15 @@ import Theme from "../components/themer";
 import Header from "../components/header";
 import Newsletter from "../components/newsletter";
 
+import { getScreen } from "../api";
+
 class ScreenPage extends Component {
-  static async getInitialProps({ req }) {
+  static async getInitialProps({ req, query }) {
     if (req) {
       Helmet.renderStatic();
     }
-    return { title: "Screen" };
+    const screen = getScreen(query.id);
+    return { title: "Screen", screen };
   }
   render() {
     return (

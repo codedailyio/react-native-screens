@@ -88,7 +88,7 @@ class NewsLetter extends Component {
     }, 3000);
   };
   render() {
-    const { saved, hide } = this.state;
+    const { saved, hide, email } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         {!hide && (
@@ -108,7 +108,7 @@ class NewsLetter extends Component {
                   type="email"
                   name="email"
                   placeholder="Your email address"
-                  value={this.state.email}
+                  value={email}
                   onChange={e => this.setState({ email: e.target.value })}
                 />
                 <Button type="submit">Join</Button>
